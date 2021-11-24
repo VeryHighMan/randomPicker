@@ -1,0 +1,15 @@
+@font-face {
+	font-family: 'Ghanachocolate';
+	src: url('../../fonts/Ghanachocolate.otf') format('woff');
+}
+
+@font-face {
+	font-family: 'NanumSquareRoundB';
+	src: url('../../fonts/NanumSquareRoundB.woff') format('woff');
+}
+
+@font-face {
+	font-family: 'NanumSquareRoundEB';
+	src: url('../../fonts/NanumSquareRoundEB.woff') format('woff');
+}
+
