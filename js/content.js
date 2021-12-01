@@ -5,6 +5,8 @@ var txtContMax = 7;
 var txtContMin = 2;
 var txtLen;
 
+var db;
+
 $(window).on("load", function() {
     console.log("=== page start ===");
 
@@ -75,30 +77,6 @@ function finishBlink() {
 
 
 }
-
-
-
-
-
-
-function jump(target) {
-    //WITH Timelines (cleaner, more versatile)
-    // var tl = gsap.timeline({repeat: 2, repeatDelay: 1});
-    var tl = gsap.timeline();
-    // tl.to("#player", {x: 0, duration: 1});
-    tl.to(target, {y: -100, duration: 1});
-    // tl.to("#player", {opacity: 0, duration: 1});
-
-    // then we can control the whole thing easily...
-    // tl.pause();
-    // tl.resume();
-    // tl.seek(1.5);
-    // tl.reverse();
-
-
-}
-
-
 
 
 

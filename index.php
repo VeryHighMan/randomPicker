@@ -12,6 +12,11 @@
 		<!-- 페이지 css -->
 		<link type="text/css" rel="stylesheet" href="./css/content.css"/>
 
+		<?php
+			include './db/DBData.php';
+			include './db/DBconnect.php';
+		?>
+
 		<!-- 공통 js -->
 		<script type="text/javascript" src="./common/js/gsap.min.js"></script>
 		<script type="text/javascript" src="./common/js/jquery-3.2.1.min.js"></script>
@@ -58,7 +63,20 @@
 				</div>
 			</div>
 
-			<div class="right_section section"></div>
+			<div class="right_section section">
+
+				<div class="record_container">
+					<?php
+						$sql = "SELECT * FROM record";
+						$result = mysqli_query($conn, $sql);
+						while($row = mysqli_fetch_array($result)){
+							echo "<div class='record' data-index='".$row['index']."'>".$row['title']."</div>";
+						}
+						mysqli_close($conn);
+					?>
+				</div>
+
+			</div>
 
 		</div>
 		<!-- //container -->

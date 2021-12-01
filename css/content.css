@@ -43,7 +43,7 @@
     background-color: rgba(100, 1, 2, 0.2);
 }
 .right_section {
-    background-color: rgba(300, 1, 2, 0.2);
+    background-color: rgba(250, 1, 2, 0.2);
 }
 
 #text_container {
@@ -121,6 +121,21 @@
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+.record_container {
+    position: relative;
+    height: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: column;
+}
+
+.record_container .record {
+    font-family: 'NanumSquareRoundEB';
+    font-size: 20px;
 }
 
 
