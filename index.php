@@ -28,6 +28,14 @@
 		<script type="text/javascript" src="./js/pageData.js"></script>
 		<script type="text/javascript" src="./js/content.js"></script>
 
+		
+
+
+
+
+
+
+
 	</head>
 	<body>
 
@@ -67,13 +75,25 @@
 
 				<div class="record_container">
 					<?php
-						$sql = "SELECT * FROM record";
+						$sql = "SELECT * FROM record LIMIT 10";
 						$result = mysqli_query($conn, $sql);
 						while($row = mysqli_fetch_array($result)){
-							echo "<div class='record' data-index='".$row['index']."'>".$row['title']."</div>";
+							echo "<div class='record' data-index='".$row['index']."'>".
+								"<div class='title'>".$row['title']."</div>".
+								"<div class='date'>".$row['date']."</div>".
+								"<div class='blank'></div>".
+							"</div>";
 						}
 						mysqli_close($conn);
 					?>
+
+					<!-- <div class="record">
+						<div class="title">제목</div>
+						<div class="date">날짜</div>
+					</div> -->
+
+
+					
 				</div>
 
 			</div>

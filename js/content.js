@@ -6,7 +6,6 @@ var txtContMin = 2;
 var txtLen;
 
 var db;
-
 $(window).on("load", function() {
     console.log("=== page start ===");
 
@@ -66,17 +65,34 @@ $(window).on("load", function() {
 function finishBlink() {
     console.log("끝");
 
-
-
-
-
-
     clearTimeout(timer);
-
-
-
-
 }
 
+function sqlSelect() {
 
+    $.ajax({
+        url: './db/sqlSelect.php',
+        type: 'POST',
+        data: {
+            sql: 'SELECT * FROM record LIMIT 10',
+            param2: '20'
+        },
+        success: function (result) {
+            var resultArr = eval(result);
+            // console.log(resultArr);
 
+            $(".record_container .record").remove();
+
+            $(resultArr).each(function(idx) {
+                var owner = $(this);
+                $(".record_container").append("<div class='record' data-index='" + owner[0] + "'>" +
+                    "<div class='title'>" + owner[1] + "</div>" +
+                    "<div class='date'>" + owner[2] + "</div>" +
+                    "<div class='blank'></div>" +
+                "</div>");
+            });
+
+        }
+    });
+
+}

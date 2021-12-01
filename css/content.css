@@ -134,8 +134,37 @@
 }
 
 .record_container .record {
+    width: 100%;
+    height: 10%;
+    display: flex;
+    align-items: center;
+}
+
+.record_container .record .title {
+    font-family: 'NanumSquareRoundEB';
+    font-size: 30px;
+    width: 60%;
+    text-align: center;
+}
+.record_container .record .date {
     font-family: 'NanumSquareRoundEB';
     font-size: 20px;
+    width: 30%;
+    text-align: center;
 }
+.record_container .record .blank {
+    font-family: 'NanumSquareRoundEB';
+    font-size: 20px;
+    width: 10%;
+    text-align: center;
+}
+
+.record_container .record:first-child .blank::before {
+    content: "▲";
+}
+.record_container .record:last-child .blank::before {
+    content: "▼";
+}
+
 
 
