@@ -68,18 +68,17 @@ function finishBlink() {
     clearTimeout(timer);
 }
 
-function sqlSelect() {
+function sqlSelect(idx) {
 
     $.ajax({
         url: './db/sqlSelect.php',
         type: 'POST',
         data: {
-            sql: 'SELECT * FROM record LIMIT 10',
-            param2: '20'
+            sql: 'SELECT * FROM `record` WHERE `index` > ' + idx + ' ORDER BY `index` ASC LIMIT 10'
         },
         success: function (result) {
             var resultArr = eval(result);
-            // console.log(resultArr);
+            resultArr.sort(function(){ return -1; });
 
             $(".record_container .record").remove();
 
@@ -92,6 +91,7 @@ function sqlSelect() {
                 "</div>");
             });
 
+            
         }
     });
 
