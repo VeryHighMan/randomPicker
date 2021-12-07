@@ -68,10 +68,10 @@ function finishBlink() {
     clearTimeout(timer);
 }
 
-function sqlSelect(idx) {
+function selectRecord(idx) {
 
     $.ajax({
-        url: './db/sqlSelect.php',
+        url: './db/selectRecord.php',
         type: 'POST',
         data: {
             sql: 'SELECT * FROM `record` WHERE `index` > ' + idx + ' ORDER BY `index` ASC LIMIT 10'
