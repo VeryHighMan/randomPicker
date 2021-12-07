@@ -96,3 +96,22 @@ function selectRecord(idx) {
     });
 
 }
+
+function insertRecord(title, picker, pickerIdx, startIdx, timingArr, contentArr) {
+
+    $.ajax({
+        url: './db/insertRecord.php',
+        type: 'POST',
+        data: {
+            sql: 'INSERT INTO `record`(`title`, `result_picker`, `result_picker_index`, `condition_start_index`, `condition_timing_array`, `condition_content_array`) VALUES ("' + title + '","' + picker + '",' + pickerIdx + ',' + startIdx + ',"' + timingArr + '","' + contentArr + '")'
+        },
+        success: function (result) {
+            console.log(result);
+            // INSERT INTO `record`(`title`, `result_picker`, `result_picker_index`, `condition_start_index`, `condition_timing_array`, `condition_content_array`) VALUES ("테스트데이터","당첨자",0,0,"타이밍배열","컨텐츠배열")
+        }
+    });
+
+}
+
+
+
