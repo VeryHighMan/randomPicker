@@ -159,12 +159,13 @@
     text-align: center;
 }
 
-.record_container .record:first-child .blank::before {
-    content: "▲";
-}
 .record_container .record:last-child .blank::before {
     content: "▼";
 }
+.record_container .record:first-child .blank::before {
+    content: "▲";
+}
+
 
 
 
