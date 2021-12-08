@@ -46,6 +46,34 @@
     background-color: rgba(250, 1, 2, 0.2);
 }
 
+.record_view_container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.record_view_cont {
+    position: relative;
+    width: 100%;
+    display: flex;
+}
+.record_view_cont .title {
+    width: 35%;
+
+    font-family: 'NanumSquareRoundEB';
+    font-size: 20px;
+}
+.record_view_cont .context {
+    width: 65%;
+
+    text-align: justify;
+
+    font-family: 'NanumSquareRoundB';
+    font-size: 20px;
+
+    word-break: break-word;
+}
+
 #text_container {
     position: relative;
     /* width: 800px; */

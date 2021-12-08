@@ -42,7 +42,44 @@
 		<!-- container -->
 		<div id="container">
 
-			<div class="left_section section"></div>
+			<div class="left_section section">
+
+				<div class="record_view_container">
+					<div class="record_view_cont index_cont">
+						<div class="title">번호 : </div>
+						<div class="context">번호</div>
+					</div>
+					<div class="record_view_cont title_cont">
+						<div class="title">제목 : </div>
+						<div class="context">제목</div>
+					</div>
+					<div class="record_view_cont date_cont">
+						<div class="title">시행일자 : </div>
+						<div class="context">시행일자</div>
+					</div>
+					<div class="record_view_cont picker_cont">
+						<div class="title">당첨자 : </div>
+						<div class="context">당첨자</div>
+					</div>
+					<div class="record_view_cont picker_index_cont">
+						<div class="title">당첨자 인덱스 : </div>
+						<div class="context">당첨자 인덱스</div>
+					</div>
+					<div class="record_view_cont start_index_cont">
+						<div class="title">시작 인덱스 : </div>
+						<div class="context">시작 인덱스</div>
+					</div>
+					<div class="record_view_cont timing_array_cont">
+						<div class="title">타이밍 배열 : </div>
+						<div class="context">타이밍 배열</div>
+					</div>
+					<div class="record_view_cont content_array_cont">
+						<div class="title">컨텐츠 배열 : </div>
+						<div class="context">컨텐츠 배열</div>
+					</div>
+				</div>
+			
+			</div>
 
 			<div class="center_section section">
 				<div id="text_container" class="text_container">

@@ -89,12 +89,42 @@ function selectRecord(idx) {
                     "<div class='date'>" + owner[2] + "</div>" +
                     "<div class='blank'></div>" +
                 "</div>");
+
+                $(".record_container .record").eq(idx).on(touchend, function() {
+                    console.log("레코드 클릭됨");
+                    var recordIdx = $(this).attr("data-index");
+                    selectRecordDetail(recordIdx);
+                });
+
+                $(".record_container .record .blank").eq(idx).on(touchend, function(e) {
+                    e.stopPropagation();
+                    console.log("blank 클릭됨");
+                });
+
             });
 
             
         }
     });
 
+}
+
+function selectRecordDetail(idx) {
+    $.ajax({
+        url: './db/selectRecordDetail.php',
+        type: 'POST',
+        data: {
+            sql: 'SELECT * FROM `record` WHERE `index` = ' + idx + ''
+        },
+        success: function (result) {
+            console.log(result);
+            var resultArr = eval(result);
+            console.log(resultArr);
+
+            showRecord(resultArr[0], resultArr[1], resultArr[2], resultArr[3], resultArr[4], resultArr[5], resultArr[6], resultArr[7]);
+
+        }
+    });
 }
 
 function insertRecord(title, picker, pickerIdx, startIdx, timingArr, contentArr) {
@@ -113,5 +143,23 @@ function insertRecord(title, picker, pickerIdx, startIdx, timingArr, contentArr)
 
 }
 
+
+
+
+function showRecord(idx, title, date, picker, pickerIdx, startIdx, timingArr, contentArr) {
+    console.log("showRecord");
+
+    $(".index_cont .context").html(idx);
+    $(".title_cont .context").html(title);
+    $(".date_cont .context").html(date);
+    $(".picker_cont .context").html(picker);
+    $(".picker_index_cont .context").html(pickerIdx);
+    $(".start_index_cont .context").html(startIdx);
+    $(".timing_array_cont .context").html(timingArr);
+    $(".content_array_cont .context").html(contentArr);
+
+
+
+}
 
 
