@@ -12,11 +12,6 @@
 		<!-- 페이지 css -->
 		<link type="text/css" rel="stylesheet" href="./css/content.css"/>
 
-		<?php
-			include './db/DBData.php';
-			include './db/DBconnect.php';
-		?>
-
 		<!-- 공통 js -->
 		<script type="text/javascript" src="./common/js/gsap.min.js"></script>
 		<script type="text/javascript" src="./common/js/jquery-3.2.1.min.js"></script>
@@ -27,14 +22,6 @@
 		<!-- 페이지 js -->
 		<script type="text/javascript" src="./js/pageData.js"></script>
 		<script type="text/javascript" src="./js/content.js"></script>
-
-		
-
-
-
-
-
-
 
 	</head>
 	<body>
@@ -82,6 +69,11 @@
 			</div>
 
 			<div class="center_section section">
+
+				<div class="title_container">
+					<input type="text" class="input" maxlength="10"/>
+				</div>
+
 				<div id="text_container" class="text_container">
 					<div class="text_cont">
 						<span class="text"></span>
@@ -109,30 +101,18 @@
 			</div>
 
 			<div class="right_section section">
-
 				<div class="record_container">
-					<?php
-						$sql = "SELECT * FROM record LIMIT 10";
-						$result = mysqli_query($conn, $sql);
-						while($row = mysqli_fetch_array($result)){
-							echo "<div class='record' data-index='".$row['index']."'>".
-								"<div class='title'>".$row['title']."</div>".
-								"<div class='date'>".$row['date']."</div>".
-								"<div class='blank'></div>".
-							"</div>";
-						}
-						mysqli_close($conn);
-					?>
 
 					<!-- <div class="record">
 						<div class="title">제목</div>
 						<div class="date">날짜</div>
 					</div> -->
 
-
-					
 				</div>
-
+				<div class="record_control">
+					<div class="prev">이전</div>
+					<div class="next">다음</div>
+				</div>
 			</div>
 
 		</div>

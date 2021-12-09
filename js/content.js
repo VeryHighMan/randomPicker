@@ -59,6 +59,8 @@ $(window).on("load", function() {
         $(".text_cont").eq(Math.floor(Math.random() * txtLen)).trigger("blink");
     });
 
+    selectRecord();
+
 });
 
 
@@ -69,16 +71,19 @@ function finishBlink() {
 }
 
 function selectRecord(idx) {
+    var sql;
+    if(!idx) sql = 'SELECT * FROM `record` ORDER BY `index` DESC LIMIT 10';
+    else sql = 'SELECT * FROM `record` WHERE `index` > ' + idx + ' ORDER BY `index` ASC LIMIT 10';
 
     $.ajax({
         url: './db/selectRecord.php',
         type: 'POST',
         data: {
-            sql: 'SELECT * FROM `record` WHERE `index` > ' + idx + ' ORDER BY `index` ASC LIMIT 10'
+            sql: sql
         },
         success: function (result) {
             var resultArr = eval(result);
-            resultArr.sort(function(){ return -1; });
+            if(idx) resultArr.sort(function(){ return -1; });
 
             $(".record_container .record").remove();
 
@@ -102,11 +107,8 @@ function selectRecord(idx) {
                 });
 
             });
-
-            
         }
     });
-
 }
 
 function selectRecordDetail(idx) {
@@ -117,12 +119,11 @@ function selectRecordDetail(idx) {
             sql: 'SELECT * FROM `record` WHERE `index` = ' + idx + ''
         },
         success: function (result) {
-            console.log(result);
+            // console.log(result);
             var resultArr = eval(result);
-            console.log(resultArr);
+            // console.log(resultArr);
 
             showRecord(resultArr[0], resultArr[1], resultArr[2], resultArr[3], resultArr[4], resultArr[5], resultArr[6], resultArr[7]);
-
         }
     });
 }
