@@ -103,9 +103,9 @@ function finishBlink() {
     console.log( "인덱스: " + $(".text_cont.on").index() );
 
     console.log( "스타트 인덱스: " + startIdx );
-
     console.log( "타이밍배열: " + blinkTimingArr);
-
+    console.log( "타이밍배열: " + blinkTimingArr);
+    
     // insertRecord(title, picker, pickerIdx, startIdx, timingArr, contentArr);
 
     clearTimeout(timer);
