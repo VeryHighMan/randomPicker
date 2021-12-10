@@ -76,11 +76,15 @@
 
 .title_container {
     position: relative;
-    height: 30px;
+    height: 40px;
 
     display: flex;
     align-items: center;
     justify-content: center;
+}
+.title_container .text {
+    font-family: 'Ghanachocolate';
+    font-size: 30px;
 }
 
 #text_container {
@@ -179,7 +183,7 @@
 }
 
 .record_container .record .title {
-    font-family: 'NanumSquareRoundEB';
+    font-family: 'Ghanachocolate';
     font-size: 30px;
     width: 65%;
     text-align: center;

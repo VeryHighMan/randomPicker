@@ -5,7 +5,10 @@ var txtContMax = 7;
 var txtContMin = 2;
 var txtLen;
 
+var title;
+var startIdx;
 var db;
+
 $(window).on("load", function() {
     console.log("=== page start ===");
 
@@ -20,18 +23,30 @@ $(window).on("load", function() {
         if($(".text_cont").length < txtContMax) {
             txtContainer.append('<div class="text_cont">' +
                 '<span class="text"></span>' +
-                '<input type="text" class="input" maxlength="6"/>' +
+                '<input type="text" class="input" maxlength="10"/>' +
             '</div>');
+            txtLen = $(".text_cont").length;
         }
     });
 
     $(".remove_btn").on(touchend, function() {
         if($(".text_cont").length > txtContMin) {
             txtContainer.find(".text_cont:last-child").remove();
+            txtLen = $(".text_cont").length;
         }
     });
 
     $(".start_btn").on(touchend, function() {
+
+        $(".title_container").each(function() {
+            var owner = $(this);
+
+            owner.find(".input").addClass("remove");
+
+            if(!owner.find(".input").val()) title = "제목 없음";
+            else title = owner.find(".input").val();
+            owner.find(".text").html(title);
+        });
 
         $(".text_cont").each(function() {
             var owner = $(this);
@@ -42,7 +57,7 @@ $(window).on("load", function() {
                 owner.addClass("on");
                 timer = setTimeout(function() {
                     owner.removeClass("on");
-    
+                    
                     if(owner.next().length >= 1) owner.next().trigger("blink");
                     else firstTxt.trigger("blink");
                     
@@ -56,7 +71,9 @@ $(window).on("load", function() {
 
         });
 
-        $(".text_cont").eq(Math.floor(Math.random() * txtLen)).trigger("blink");
+        startIdx = Math.floor(Math.random() * txtLen);
+
+        $(".text_cont").eq(startIdx).trigger("blink");
     });
 
     $(".record_control .prev").on(touchend, function() {
@@ -69,6 +86,7 @@ $(window).on("load", function() {
 
     $(".record_control .refresh").on(touchend, function() {
         console.log("refresh");
+        selectRecord();
     });
 
     selectRecord();
@@ -79,13 +97,26 @@ $(window).on("load", function() {
 function finishBlink() {
     console.log("끝");
 
+    console.log( title );
+    
+    console.log( "텍스트: " + $(".text_cont.on .text").html() );
+    console.log( "인덱스: " + $(".text_cont.on").index() );
+
+    console.log( "스타트 인덱스: " + startIdx );
+
+    console.log( "타이밍배열: " + blinkTimingArr);
+
+    // insertRecord(title, picker, pickerIdx, startIdx, timingArr, contentArr);
+
     clearTimeout(timer);
 }
 
 function selectRecord(idx) {
     var sql;
-    if(!idx) sql = 'SELECT * FROM `record` ORDER BY `index` DESC LIMIT 10';
-    else sql = 'SELECT * FROM `record` WHERE `index` > ' + idx + ' ORDER BY `index` ASC LIMIT 10';
+    if(!idx) sql = 'SELECT * FROM `record` ORDER BY `index` DESC';
+    // if(!idx) sql = 'SELECT * FROM `record` ORDER BY `index` DESC LIMIT 10';
+    else sql = 'SELECT * FROM `record` WHERE `index` > ' + idx + ' ORDER BY `index` ASC';
+    // else sql = 'SELECT * FROM `record` WHERE `index` > ' + idx + ' ORDER BY `index` ASC LIMIT 10';
 
     $.ajax({
         url: './db/selectRecord.php',

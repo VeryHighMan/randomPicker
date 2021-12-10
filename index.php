@@ -71,25 +71,26 @@
 			<div class="center_section section">
 
 				<div class="title_container">
+					<span class="text"></span>
 					<input type="text" class="input" maxlength="10"/>
 				</div>
 
 				<div id="text_container" class="text_container">
 					<div class="text_cont">
 						<span class="text"></span>
-						<input type="text" class="input" maxlength="6"/>
+						<input type="text" class="input" maxlength="10"/>
 					</div>
 					<div class="text_cont">
 						<span class="text"></span>
-						<input type="text" class="input" maxlength="6"/>
+						<input type="text" class="input" maxlength="10"/>
 					</div>
 					<div class="text_cont">
 						<span class="text"></span>
-						<input type="text" class="input" maxlength="6"/>
+						<input type="text" class="input" maxlength="10"/>
 					</div>
 					<div class="text_cont">
 						<span class="text"></span>
-						<input type="text" class="input" maxlength="6"/>
+						<input type="text" class="input" maxlength="10"/>
 					</div>
 				</div>
 	
