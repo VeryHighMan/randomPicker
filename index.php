@@ -110,8 +110,9 @@
 
 				</div>
 				<div class="record_control">
-					<div class="prev">이전</div>
-					<div class="next">다음</div>
+					<!-- <div class="prev remove">이전(미구현)</div> -->
+					<!-- <div class="next remove">다음(미구현)</div> -->
+					<div class="refresh">새로고침</div>
 				</div>
 			</div>
 

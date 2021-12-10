@@ -163,11 +163,12 @@
 .record_container {
     position: relative;
     height: 90%;
-
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    flex-direction: column;
+    
+    /* display: flex; */
+    /* align-items: center; */
+    /* justify-content: flex-start; */
+    /* flex-direction: column; */
+    overflow-y: scroll;
 }
 
 .record_container .record {
@@ -180,19 +181,13 @@
 .record_container .record .title {
     font-family: 'NanumSquareRoundEB';
     font-size: 30px;
-    width: 60%;
+    width: 65%;
     text-align: center;
 }
 .record_container .record .date {
     font-family: 'NanumSquareRoundEB';
     font-size: 20px;
-    width: 30%;
-    text-align: center;
-}
-.record_container .record .blank {
-    font-family: 'NanumSquareRoundEB';
-    font-size: 20px;
-    width: 10%;
+    width: 35%;
     text-align: center;
 }
 
@@ -211,6 +206,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
+
+    background-color: red;
 }
 .record_control .next {
     width: 50%;
@@ -221,6 +218,22 @@
     display: flex;
     align-items: center;
     justify-content: center;
+
+    background-color: blue;
+}
+.record_control .refresh {
+    width: 100%;
+
+    font-family: 'NanumSquareRoundEB';
+    font-size: 20px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: #ffffff;
+
+    background-color: green;
 }
 
 

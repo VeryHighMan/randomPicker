@@ -59,6 +59,18 @@ $(window).on("load", function() {
         $(".text_cont").eq(Math.floor(Math.random() * txtLen)).trigger("blink");
     });
 
+    $(".record_control .prev").on(touchend, function() {
+        console.log("prev");
+    });
+
+    $(".record_control .next").on(touchend, function() {
+        console.log("next");
+    });
+
+    $(".record_control .refresh").on(touchend, function() {
+        console.log("refresh");
+    });
+
     selectRecord();
 
 });
@@ -92,18 +104,12 @@ function selectRecord(idx) {
                 $(".record_container").append("<div class='record' data-index='" + owner[0] + "'>" +
                     "<div class='title'>" + owner[1] + "</div>" +
                     "<div class='date'>" + owner[2] + "</div>" +
-                    "<div class='blank'></div>" +
                 "</div>");
 
                 $(".record_container .record").eq(idx).on(touchend, function() {
                     console.log("레코드 클릭됨");
                     var recordIdx = $(this).attr("data-index");
                     selectRecordDetail(recordIdx);
-                });
-
-                $(".record_container .record .blank").eq(idx).on(touchend, function(e) {
-                    e.stopPropagation();
-                    console.log("blank 클릭됨");
                 });
 
             });
