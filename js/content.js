@@ -1,4 +1,5 @@
 var blinkTimingArr;
+var contentArr;
 var timingCnt = 0;
 var timer;
 var txtContMax = 7;
@@ -104,9 +105,17 @@ function finishBlink() {
 
     console.log( "스타트 인덱스: " + startIdx );
     console.log( "타이밍배열: " + blinkTimingArr);
-    console.log( "타이밍배열: " + blinkTimingArr);
+
+    contentArr = [];
+
+    $(".text_cont").each(function() {
+        var owner = $(this);
+        contentArr.push( owner.find(".text").html() );
+    });
+
+    console.log( "컨텐츠배열: " + contentArr);
     
-    // insertRecord(title, picker, pickerIdx, startIdx, timingArr, contentArr);
+    insertRecord(title, $(".text_cont.on .text").html(), $(".text_cont.on").index(), startIdx, blinkTimingArr, contentArr);
 
     clearTimeout(timer);
 }
