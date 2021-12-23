@@ -49,7 +49,7 @@
 .record_view_container {
     position: relative;
     width: 100%;
-    height: 100%;
+    height: 90%;
 }
 
 .record_view_cont {
@@ -118,6 +118,24 @@
 
 .btn_container {
     position: relative;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.left_section .btn_container {
+    height: 10%;
+}
+
+.record_start_btn {
+    width: 100%;
+    height: 100%;
+
+    background-color: red;
+    color: #ffffff;
+    font-family: 'NanumSquareRoundEB';
+    font-size: 20px;
 
     display: flex;
     align-items: center;

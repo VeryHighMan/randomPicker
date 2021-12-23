@@ -65,7 +65,11 @@
 						<div class="context">컨텐츠 배열</div>
 					</div>
 				</div>
-			
+				
+				<div class="btn_container">
+					<div class="record_start_btn">기록 보기</div>
+				</div>
+
 			</div>
 
 			<div class="center_section section">
