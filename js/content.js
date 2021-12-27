@@ -17,7 +17,7 @@ $(window).on("load", function() {
 
     var txtContainer = $("#text_container");
 
-    var firstTxt = $(".text_cont").eq(0);
+    // var firstTxt = $(".text_cont").eq(0);
     txtLen = $(".text_cont").length;
 
     $(".add_btn").on(touchend, function() {
@@ -39,42 +39,44 @@ $(window).on("load", function() {
 
     $(".start_btn").on(touchend, function() {
 
-        $(".title_container").each(function() {
-            var owner = $(this);
+        // $(".title_container").each(function() {
+        //     var owner = $(this);
 
-            owner.find(".input").addClass("remove");
+        //     owner.find(".input").addClass("remove");
 
-            if(!owner.find(".input").val()) title = "제목 없음";
-            else title = owner.find(".input").val();
-            owner.find(".text").html(title);
-        });
+        //     if(!owner.find(".input").val()) title = "제목 없음";
+        //     else title = owner.find(".input").val();
+        //     owner.find(".text").html(title);
+        // });
 
-        $(".text_cont").each(function() {
-            var owner = $(this);
-            owner.find(".input").addClass("remove");
-            owner.find(".text").html(owner.find(".input").val());
+        // $(".text_cont").each(function() {
+        //     var owner = $(this);
+        //     owner.find(".input").addClass("remove");
+        //     owner.find(".text").html(owner.find(".input").val());
 
-            owner.on("blink", function() {
-                owner.addClass("on");
-                timer = setTimeout(function() {
-                    owner.removeClass("on");
+        //     owner.on("blink", function() {
+        //         owner.addClass("on");
+        //         timer = setTimeout(function() {
+        //             owner.removeClass("on");
                     
-                    if(owner.next().length >= 1) owner.next().trigger("blink");
-                    else firstTxt.trigger("blink");
+        //             if(owner.next().length >= 1) owner.next().trigger("blink");
+        //             else firstTxt.trigger("blink");
                     
-                    timingCnt++;
-                    if(timingCnt > blinkTimingArr.length) {
-                        timingCnt = 0;
-                        finishBlink();
-                    }
-                }, blinkTimingArr[timingCnt]);
-            });
+        //             timingCnt++;
+        //             if(timingCnt > blinkTimingArr.length) {
+        //                 timingCnt = 0;
+        //                 finishBlink();
+        //             }
+        //         }, blinkTimingArr[timingCnt]);
+        //     });
 
-        });
+        // });
 
-        startIdx = Math.floor(Math.random() * txtLen);
+        // startIdx = Math.floor(Math.random() * txtLen);
 
-        $(".text_cont").eq(startIdx).trigger("blink");
+        // $(".text_cont").eq(startIdx).trigger("blink");
+
+        start();
     });
 
     $(".record_control .prev").on(touchend, function() {
@@ -90,10 +92,56 @@ $(window).on("load", function() {
         selectRecord();
     });
 
+    $(".record_start_btn").on(touchend, function() {
+        console.log("기록보기");
+
+        start();
+    });
+
     selectRecord();
 
 });
 
+function start() {
+    var firstTxt = $(".text_cont").eq(0);
+    
+    $(".title_container").each(function() {
+        var owner = $(this);
+
+        owner.find(".input").addClass("remove");
+
+        if(!owner.find(".input").val()) title = "제목 없음";
+        else title = owner.find(".input").val();
+        owner.find(".text").html(title);
+    });
+
+    $(".text_cont").each(function() {
+        var owner = $(this);
+        owner.find(".input").addClass("remove");
+        owner.find(".text").html(owner.find(".input").val());
+
+        owner.on("blink", function() {
+            owner.addClass("on");
+            timer = setTimeout(function() {
+                owner.removeClass("on");
+                
+                if(owner.next().length >= 1) owner.next().trigger("blink");
+                else firstTxt.trigger("blink");
+                
+                timingCnt++;
+                if(timingCnt > blinkTimingArr.length) {
+                    timingCnt = 0;
+                    finishBlink();
+                }
+            }, blinkTimingArr[timingCnt]);
+        });
+
+    });
+
+    startIdx = Math.floor(Math.random() * txtLen);
+
+    $(".text_cont").eq(startIdx).trigger("blink");
+}
 
 function finishBlink() {
     console.log("끝");
